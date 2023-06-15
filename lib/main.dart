@@ -1,9 +1,21 @@
 import 'package:codeway_case/view/StoryAvatar.dart';
-import 'package:codeway_case/view/StoryList.dart';
+import 'package:codeway_case/view/cubit/StoriesViewModel.dart';
+import 'package:codeway_case/view/cubit/StoryViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (context) => StoryViewModel()),
+      BlocProvider(create: (context) => StoriesViewModel()),
+    ],
+    child: const MyApp(),
+  ),);
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +30,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -33,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Container(
           child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-            Container(height: 140, width: 410, child: StoryList()),
+            Container(child: StoryAvatar()),
             Spacer(),
             Text("deneme"),
             Spacer(),
