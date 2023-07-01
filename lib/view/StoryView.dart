@@ -3,6 +3,7 @@ import 'package:codeway_case/view/StoryContentPage.dart';
 import 'package:codeway_case/view/VideoPlayProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../cubit/StoryViewModel.dart';
 import '../model/Story.dart';
@@ -81,12 +82,14 @@ class _StoryView extends State<StoryView> with TickerProviderStateMixin {
               if (animationControllers.isEmpty) {
                 return Center(child: CircularProgressIndicator());
               }
-
               return Dismissible(
                   direction: DismissDirection.down,
                   onDismissed: (direction) {
                     Navigator.of(context).pop();
-                    context.read<VideoPlayerProvider>().playPause(false);
+                    if (context.read<VideoPlayerProvider>().controller?.value.isInitialized ??
+                        false) {
+                      context.read<VideoPlayerProvider>().playPause(false);
+                    }
                   },
                   key: Key('key'),
                   child: buildPageView(storyData));

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class AnimatedBar extends StatefulWidget {
   final int position;
@@ -41,8 +42,8 @@ class _AnimatedBarState extends State<AnimatedBar> {
       child: LayoutBuilder(
         builder: (context, constraints) {
           return Container(
-            margin: EdgeInsets.symmetric(horizontal: 2),
-            height: 3,
+            margin: EdgeInsets.symmetric(horizontal: 6.sp),
+            height: 7.sp,
             child: widget.currentIndex == widget.position
                 ? LinearProgressIndicator(
                     value: _curvedAnimation.value,

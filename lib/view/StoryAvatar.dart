@@ -1,6 +1,7 @@
 import 'package:codeway_case/view/MainView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../cubit/StoryViewModel.dart';
 import '../repo/StoryRepository.dart';
 
@@ -27,8 +28,7 @@ class _StoryAvatarState extends State<StoryAvatar> {
           return Column(
             children: [
               Container(
-                height: 130,
-                width: 410,
+                height: 48.sp,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: storyData.storyList.length,
@@ -44,7 +44,7 @@ class _StoryAvatarState extends State<StoryAvatar> {
                         );
                       },
                       child: Padding(
-                          padding: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(13.sp),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -53,8 +53,8 @@ class _StoryAvatarState extends State<StoryAvatar> {
                                   Padding(
                                     padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Container(
-                                      width: 82.0,
-                                      height: 82.0,
+                                      width: 37.0.sp,
+                                      height: 37.0.sp,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                         gradient: LinearGradient(
@@ -69,7 +69,7 @@ class _StoryAvatarState extends State<StoryAvatar> {
                                           ],
                                         ),
                                       ),
-                                      padding: EdgeInsets.all(3.2),
+                                      padding: EdgeInsets.all(7.5.sp),
                                       child: ClipOval(
                                         child: Image.network(
                                           storyData

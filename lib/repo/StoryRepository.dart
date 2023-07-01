@@ -13,19 +13,6 @@ class StoryRepository {
             .map((doc) => Story.fromJson(doc.data() as Map<String, dynamic>))
             .toList());
   }
-
-  Future<StoriesData> getAllStories() async {
-    var snapshot = await storyCollection.get();
-    List<String> allStories = [];
-
-    for (var doc in snapshot.docs) {
-      Story story = Story.fromJson(doc.data() as Map<String, dynamic>);
-      allStories.addAll(story.stories!);
-    }
-
-    return StoriesData(ConnectionState.done, allStories);
-  }
-
 }
 
 class StoryData {
@@ -36,14 +23,4 @@ class StoryData {
     this.connectionState,
     this.storyList,
   );
-}
-
-class StoriesData {
-  final ConnectionState connectionState;
-  final List<String> storiesList;
-
-  StoriesData(
-      this.connectionState,
-      this.storiesList,
-      );
 }
