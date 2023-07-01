@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "539096735390",
+    "project_id": "codeway-case-f2cb8",
+    "storage_bucket": "codeway-case-f2cb8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539096735390:android:d196022cc709539fb7658f",
+        "android_client_info": {
+          "package_name": "com.codeway.codeway_case"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539096735390-hggjco9pq663julosirmeh24vaost4ol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsnjc7qOXEoumGYmPJlPZBMvmDqztjO3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539096735390-hggjco9pq663julosirmeh24vaost4ol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
