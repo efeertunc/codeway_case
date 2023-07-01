@@ -1,12 +1,8 @@
 import 'package:codeway_case/view/MainView.dart';
-import 'package:codeway_case/view/StoryView.dart';
-import 'package:codeway_case/view/cubit/StoryViewModel.dart';
-import 'package:codeway_case/view/repo/StoryRepository.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'Deneme.dart';
+import '../cubit/StoryViewModel.dart';
+import '../repo/StoryRepository.dart';
 
 class StoryAvatar extends StatefulWidget {
   StoryAvatar();
@@ -21,6 +17,7 @@ class _StoryAvatarState extends State<StoryAvatar> {
     context.read<StoryViewModel>().getStories();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<StoryViewModel, StoryData>(
@@ -41,8 +38,7 @@ class _StoryAvatarState extends State<StoryAvatar> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                MainView(),
+                            builder: (context) => MainView(index),
                             fullscreenDialog: true,
                           ),
                         );
@@ -76,7 +72,8 @@ class _StoryAvatarState extends State<StoryAvatar> {
                                       padding: EdgeInsets.all(3.2),
                                       child: ClipOval(
                                         child: Image.network(
-                                          storyData.storyList[index].profileUrl!,
+                                          storyData
+                                              .storyList[index].profileUrl!,
                                           fit: BoxFit.fill,
                                         ),
                                       ),
@@ -85,7 +82,8 @@ class _StoryAvatarState extends State<StoryAvatar> {
                                   SizedBox(
                                     height: 4,
                                   ),
-                                  Text("${storyData.storyList[index].username!}")
+                                  Text(
+                                      "${storyData.storyList[index].username!}")
                                 ],
                               ),
                             ],

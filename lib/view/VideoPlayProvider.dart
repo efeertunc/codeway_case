@@ -1,14 +1,14 @@
-import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:video_player/video_player.dart';
 
 class VideoPlayerProvider with ChangeNotifier {
-  late VideoPlayerController controller;
+  VideoPlayerController? controller;
   late Future<void> initializeVideoPlayer;
 
   void initialize(String url) {
     controller = VideoPlayerController.network(url);
-    initializeVideoPlayer = controller.initialize().then((_) {
-      controller.play();
+    initializeVideoPlayer = controller!.initialize().then((_) {
+      controller!.setLooping(false);
       notifyListeners();
     }).catchError((error) {
       print("Error initializing video player: $error");
@@ -16,20 +16,22 @@ class VideoPlayerProvider with ChangeNotifier {
   }
 
   void playPause(bool play) {
-    if (controller.value.isInitialized) {
+    if (controller!.value.isInitialized) {
       if (play) {
-        if (!controller.value.isPlaying) {
-          controller.play();
+        if (!controller!.value.isPlaying) {
+          controller!.play();
           notifyListeners();
         }
       } else {
-        controller.pause();
+        controller!.pause();
         notifyListeners();
       }
     }
   }
 
   void disposeController() {
-    controller.dispose();
+    if (controller != null) {
+      controller!.pause();
+    }
   }
 }

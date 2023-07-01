@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:codeway_case/view/model/Story.dart';
+import 'package:codeway_case/model/Story.dart';
 import 'package:flutter/cupertino.dart';
 
 class StoryRepository {

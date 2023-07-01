@@ -1,4 +1,4 @@
-import 'package:codeway_case/view/repo/StoryRepository.dart';
+import 'package:codeway_case/repo/StoryRepository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
@@ -7,9 +7,10 @@ class StoryViewModel extends Cubit<StoryData> {
 
   var repo = StoryRepository();
 
-  Future<void> getStories() async {
+  Future<StoryData> getStories() async {
     var storyData = await repo.getStories();
     emit(storyData);
+    return storyData;
   }
 
 }
