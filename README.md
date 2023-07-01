@@ -12,7 +12,6 @@
 
 <p align="center">
   <img src="readme-image1.jpg" width="300" alt="Image_1">
-  <img src="readme-image2.jpg" width="300" alt="Image_2">
   <img src="readme-image3.jpg" width="300" alt="Image_3">
   <img src="readme-gif.gif" width="600" alt="Gif">
 </p>
